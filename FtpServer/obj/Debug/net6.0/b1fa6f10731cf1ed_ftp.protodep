@@ -1,0 +1,2 @@
+Pb/Ftp.cs \
+Pb/FtpGrpc.cs: Pb/ftp.proto

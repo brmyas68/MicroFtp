@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package ProtoFtp;
+//option go_package = "ProtoFtp";
+option csharp_namespace = "ProtoFtp";
+
+   
+
+
+service FTPService {
+    
+    rpc UploadFile (stream RequestFile) returns (ResponseFile) {};
+    rpc Insert (RequestInsertFtp) returns (ResponseInsertFtp) {};
+    rpc GetAll (RequestGetAllFtp) returns (ResponseGetAllFtp) {};
+  }
+  
+  message RequestFile {
+    bytes data = 1;
+  }
+  message ResponseFile {
+    bool IsOK = 1;
+  }
+
+  message RequestInsertFtp{
+    FilesFtp FilesFtp    = 1;
+  }
+  message FilesFtp{
+    int32  FileFtpID             = 1;
+    int32  FileFtpRefID          = 2;
+    string FileFtpFileName       = 3;
+    string FileFtpDateTime       = 4;
+    int32  FileFtpSettingsFtpID  = 5;
+  }
+
+  message ResponseInsertFtp {
+    int32  FileFtpID      = 1;
+    Status Status         = 2;
+  }
+  message RequestGetAllFtp{
+    int32  FileFtpSettingID      = 1;
+    int32  FileFtpRefID          = 2;
+  }
+  
+  message ResponseGetAllFtp{
+    repeated FilesFtp FilesFtps   = 1;
+    Status Status                 = 2;
+  }
+
+  message Status{
+    StatusCode StatusCode       = 1;
+    StatusMessage StatusMessage = 2;
+  }
+
+enum StatusMessage {
+    SUCCESS      = 0;
+    FAILED       = 1; 
+}
+enum StatusCode {
+    Status200 = 0;
+    Status400 = 1;
+    Status401 = 2;
+}

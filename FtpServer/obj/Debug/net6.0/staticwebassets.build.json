@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "ERy2U9d9nTSIb+Tyu2QDSsYQ9qtYWsoAGVfW355w1GY=",
+  "Source": "FtpServer",
+  "BasePath": "_content/FtpServer",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
